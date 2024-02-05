@@ -34,14 +34,6 @@ class StoryBrain {
         choice2: '')
   ];
 
-  String getChoice1() {
-    return _storyData[_storyNumber].choice1;
-  }
-
-  String getChoice2() {
-    return _storyData[_storyNumber].choice2;
-  }
-
   void nextStory(int choiceNumber) {
     if (choiceNumber == 1 && _storyNumber == 0) {
       _storyNumber = 2;
@@ -60,19 +52,14 @@ class StoryBrain {
     }
   }
 
-  void restart() {
-    _storyNumber = 0;
-  }
+  void restart() => _storyNumber = 0;
 
-  String getStory() {
-    return _storyData[_storyNumber].storyTitle;
-  }
+  String getStory() => _storyData[_storyNumber].storyTitle;
 
-  bool buttonShouldBeVisible() {
-    if (_storyNumber == 0 || _storyNumber == 1 || _storyNumber == 2) {
-      return true;
-    } else {
-      return false;
-    }
-  }
+  String getChoice1() => _storyData[_storyNumber].choice1;
+
+  String getChoice2() => _storyData[_storyNumber].choice2;
+
+  bool buttonShouldBeVisible() =>
+      _storyNumber == 0 || _storyNumber == 1 || _storyNumber == 2;
 }
